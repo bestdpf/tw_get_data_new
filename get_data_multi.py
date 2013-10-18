@@ -39,6 +39,17 @@ keys=['RQdTKNgo1NmB6r3oum0HKg'
       ,'wKXavs24my6y2jUxNq5s5Q'
       ,'qsAF2YBsIxhwrMMNmRQXsA'
       ,'BOAwVlMgFHFXtQJ0PqR43Q'
+      ,'KVk0kXf5kGpwZjvcIbwbQ'
+      ,'TXKyONhrghQJr0VjGovbRQ'
+      ,'ZpwtVGeisEPKoc0gHgjmYQ'
+      ,'ILzwbL1WXEyv2xfpLhGXjw'
+      ,'NtyLH8HMgcTzlURdlchcQ'
+      ,'IAinqzyLaFzGCIeYHAXK5w'
+      ,'JoOvBPn5VKY4JWEcTpR6FQ'
+      ,'kynFuQQW3zbecWCSLKgAcA'
+      ,'NJtrQnZBseXjRfYjWxo4hg'
+      ,'4S1EKKf8Fj2Bjcgo345ig'
+      
   ]
 secrets=['dvmQdTxGfS9HfusWiZxG4pcdmSWKETSjERjCnLNmk'
 	 ,'Nhx1ERVYbQ8m18e7AhXL15Se6MAR3i9LP015qOcM'
@@ -62,6 +73,16 @@ secrets=['dvmQdTxGfS9HfusWiZxG4pcdmSWKETSjERjCnLNmk'
 	 ,'yA61tqyIRjXtc9YqaokB5u5EGHUe5sRMOuibdDhmbc'
 	 ,'naH0duJXCWq7AtdZGDu27GBQ5f7Ho0dkm1PdoqXWHD8'
 	 ,'YX26wrMNLEHz8I7oB2LiIUG3Hb1l9uicKcDM92C8'
+	 ,'bpOsdk4koSpNaMLspHUHd4UdyOP3VEc2gazZ3u2c6c'
+	 ,'n1uoWQQzgcRZwhCgayfQWegfMUgqyf9Fh2cld82FAU'
+	 ,'Ux2XHVG09m2wU9mF58K31XSe1JcvpCATio5WLW6eo'
+	 ,'YMsErq0Qv1aB7AsfNlq0SBcyeLZmZKIuvt7nVYlY9xg'
+	 ,'P3WrvEjzpEhO3T6rC9nMSm1lgYnGEbIHng5pTydl8XI'
+	 ,'4191YKYAX80fYTEi8UDatViQWIF6Rum89puu7K8B5A'
+	 ,'jO39mH0S4LLBAR7HjZF6aoi6JbBKsx5NllYRJPB5G78'
+	 ,'d8Qvn9HWRt9XMP7IHcn3OjRlpoxjZS36TehAexiqY'
+	 ,'c9Yz97qtzFhKcOUtf9genXRJVKqGSaShAB6nidB6d8'
+	 ,'H234hsJlxYOS2C6tE9nLc1mzGI4KI6Fb5OIE4h9Y7c'
   ]
 
 def get_token(consumer_key,consumer_secret):
@@ -155,7 +176,7 @@ def get_data(idx):
 			for i in followers['ids']:
 				get_data(i)
 		except  TwitterHTTPError as err:
-			print 'Error code{1} get when get {0} info'.format(idx,err.e.code)
+			print 'Error code {1} get when get {0} info'.format(idx,err.e.code)
 			if err.e.code==429:
 				global pt
 				tmppt=(pt+1)%len_of_keys
@@ -167,7 +188,7 @@ def get_data(idx):
 				#get_data(idx)
 			if os.listdir(str(idx)) == []:
 				rmtree(str(idx))
-			traceback.print_exc(file=sys.stdout)
+			#traceback.print_exc(file=sys.stdout)
 		except  Exception:
 			print 'get other exception '
 			global f_cnt
