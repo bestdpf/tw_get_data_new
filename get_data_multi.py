@@ -204,8 +204,9 @@ def get_data(idx):
 			pt=(pt+1)%len_of_keys
 			t.set(tws[pt])
 			print 'change to tws {0}'.format(pt)
+			time.sleep(5)
 			traceback.print_exc(file=sys.stdout)
-			if f_cnt > 1:
+			if f_cnt > 5:
 				print 'restart now ...'
 				sys.exit()
 		finally:
