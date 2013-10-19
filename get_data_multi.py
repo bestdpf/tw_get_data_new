@@ -178,6 +178,9 @@ def get_data(idx):
 		except  TwitterHTTPError as err:
 			print 'Error code {1} get when get {0} info'.format(idx,err.e.code)
 			if err.e.code==429:
+				f_extends_err=io.open('extends.txt','ab')
+				f_extends_err.write(str(idx)+'\n')
+				f_extends_err.close()
 				global pt
 				tmppt=(pt+1)%len_of_keys
 				pt=tmppt
@@ -189,6 +192,11 @@ def get_data(idx):
 			if os.listdir(str(idx)) == []:
 				rmtree(str(idx))
 			#traceback.print_exc(file=sys.stdout)
+			#cannot get data for privacy protection
+			if err.e.code==401:
+				f_http_err=io.open('http_err_id.txt','ab')
+				f_http_err.write(str(idx)+'\n')
+				f_http_err.close()
 		except  Exception:
 			print 'get other exception '
 			global f_cnt
