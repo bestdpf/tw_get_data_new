@@ -1,9 +1,7 @@
 #!/bin/bash
 while [ true ]
 do
-	while read line
-	do
-	echo $line 
-	python ./get_data_multi.py $line
-	done < "last_succ.txt"
+	read last_succ_id<"last_succ.txt"
+	python get_data_bfs.py $last_succ_id
+	echo "Restarting Python Sript"
 done
